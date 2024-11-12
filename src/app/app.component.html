@@ -1,0 +1,125 @@
+<main class="max-w-[100vw]" >
+  <nav class="h-20 relative max-w-[100vw] flex items-center justify-between 2xl:px-20 px-10">
+    <div class="flex items-center gap-40">
+      <div class="text-3xl">
+        <span class="text-blue-500">Dash</span><span class="">Board</span>
+      </div>
+      <div class="relative">
+        <mat-icon class="absolute top-[50%] -translate-y-[50%] left-3 text-gray-500">search</mat-icon>
+        <input type="text" class="h-10 w-[x400px] 2xl:w-[700px] rounded-full px-3 ps-12 bg-gray-200" placeholder="Search" />
+      </div>
+    </div>
+    <div class="flex items-center gap-3 xl:gap-10">
+      <div  >
+        <mat-icon class="text-blue-600 text-2xl">notifications</mat-icon>
+      </div>
+      <div>
+        <div class="flex items-center gap-1
+        xl:gap-3 cursor-pointer" (click)="toggleVisible()" >
+          <div class="h-10 w-10 rounded-full border-2 border-black overflow-hidden">
+            <img src="./icons/avatar.png" class="size-full" alt="" />
+          </div>
+          <p class="text-xl">Aman</p>
+        </div>
+      </div>
+      <div *ngIf="isVisible" class=" w-52 py-2 absolute top-16 right-7 px-3 rounded-md  "  >
+        <button class=" bg-blue-500 py-3 w-full text-lg text-white rounded-xl flex items-center gap-2 flex-1 justify-center " > <mat-icon>logout</mat-icon> Logout</button>
+      </div>
+    </div>
+  </nav>
+  <div class="min-h-[88vh] w-full flex justify-between">
+    <div class="2xl:w-[18%]  min-h-full  py-5 px-4">
+      <ul class="flex flex-col gap-5">
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white" [routerLinkActiveOptions]="{exact:true}" >
+          <a routerLink="" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2" >
+            <mat-icon>home</mat-icon>
+            Dashboard
+          </a>
+        </li>
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white" >
+          <a routerLink="products" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+            <mat-icon>grid_view</mat-icon>
+            Products
+          </a>
+        </li>
+       
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white">
+<a routerLink="inbox" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+            <mat-icon>forum</mat-icon> Inbox
+          </a>
+        </li>
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="order-list" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+
+            <mat-icon>list_alt</mat-icon> Order List
+          </a>
+        </li>
+        
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="categories" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+
+            <mat-icon>category</mat-icon>
+            Category
+          </a>
+        </li>
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="calender" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+
+            <mat-icon>calendar_month</mat-icon>
+            Calender
+          </a>
+        </li>
+        <li
+          class="rounded-xl" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="users" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+
+            <mat-icon>group</mat-icon>
+            Seller
+          </a>
+        </li>
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="to-do" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+
+            <mat-icon>task </mat-icon> To-Do
+          </a>
+        </li>
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="banners" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+
+            <mat-icon>payments</mat-icon>
+            Banner
+          </a>
+        </li>
+        <li
+          class="rounded-lg" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="return-order" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+
+            <mat-icon>groups</mat-icon> Return order
+          </a>
+        </li>
+        <li
+          class="rounded-xl" routerLinkActive="bg-blue-600 text-white">
+          <a routerLink="coupons" class="2xl:text-2xl text-xl py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer flex items-center gap-2">
+            <mat-icon>drag_indicator</mat-icon> Coupon
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="  w-[90%] min-h-full bg-slate-100 ">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <footer class="text-center 2xl:text-3xl text-xl py-3 flex justify-center items-center ">
+    &#169; All copyright reserved by Aman Singh.
+  </footer>
+
+
+</main>

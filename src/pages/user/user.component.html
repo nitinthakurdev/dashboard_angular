@@ -1,0 +1,90 @@
+<main class="p-7">
+    <h1 class="text-5xl font-medium  ">Seller</h1>
+    <div>
+        <div class="flex  justify-between pe-10 py-4 " >
+            <div class="flex-1 " >
+                <div class="bg-white h-10 w-[40%] px-4 rounded-3xl flex justify-between items-center overflow-hidden gap-2  ">
+                    <mat-icon class="text-gray-500" >search</mat-icon>
+                    <input type="text" class="  focus:outline-none w-full h-full  "placeholder="Search" (input)="searchSeller($event)"/>
+                </div>
+            </div>
+            <div class="flex gap-5 flex-1 justify-end " >
+                <label> Status: 
+                    <select (change)="filterByStatus($event)">
+                        <option value="" >All</option>
+                        <option value={{false}} >Inactive</option>
+                        <option value={{true}}  >Active</option>
+                    </select>
+                </label>
+                <label> Seller :
+                    <select (change)="filterByAction($event)" >
+                        <option value="">All</option>
+                        <option value={{true}}>Block</option>
+                        <option value={{false}}>Unblock</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div>
+            <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Status
+                        </th>
+                        
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr *ngFor="let item of data">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-10 w-10">
+                                    <img class="h-10 w-10 rounded-full" src="https://i.pravatar.cc/150?img=1" alt="">
+                                </div>
+                                <div class="ml-4">
+                                    <div class="text-sm font-medium text-gray-900">
+                                        {{item.name}}
+                                    </div>
+                                    <div class="text-sm text-gray-500">
+                                        {{item.email}}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                       
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-white " [ngClass]="{'bg-green-500 ':item.status === true,'bg-red-500 ' : item.status === false}" >
+                               {{item.status ? 'Active' : 'Inactive'}}
+                            </span>
+                        </td>
+                        
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            {{item.email}}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer" [checked]="item.sellerBlock" >
+                            <div
+                                class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4   rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600">
+                            </div>
+                        </label>
+
+                        </td>
+                    </tr>
+
+            
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

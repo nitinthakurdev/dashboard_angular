@@ -1,0 +1,22 @@
+<div class="shadow-lg rounded-lg overflow-hidden mx-4 py-5 md:mx-10">
+    <table class="w-full table-fixed">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white">
+            <tr *ngFor="let item of data">
+                <td class="py-4 px-6 border-b border-gray-200">{{item.name}}</td>
+                <td class="py-4 px-6 border-b border-gray-200 truncate">{{item.email}}</td>
+                <td class="py-4 px-6 border-b border-gray-200">{{item.phone}}</td>
+                <td class="py-4 px-6 border-b border-gray-200">
+                    <span class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,33 @@
+<main class="p-7">
+    <h1 class="text-5xl font-medium  ">Calender</h1>
+    <p class="text-gray-600 px-4 py-3" >Here is all Daily activities</p>
+    <div class="flex  gap-4">
+        <div class="w-[70%] py-5" >
+            <div class="md:py-8 py-5 md:px-16 px-5  bg-gray-50 rounded-b" *ngFor="let val of data">
+                <div class="px-4">
+                    <div class="border-b pb-4 border-gray-400 border-dashed flex  items-center gap-32">
+                        <div>
+                            <p class="text-xs font-light leading-3 py-2 text-gray-500 ">{{formatDate(val.date)}}</p>
+                            <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800  mt-2">{{val.title}}</a>
+                            <p class="text-sm pt-2  text-gray-600 ">{{val.Description}}</p>
+                        </div>
+                        <div>
+                            <span class="bg-green-400 text-white px-4 py-1 rounded-full" [ngClass]="{'bg-yellow-400':val.status === 'pending'}" >{{val.status}}</span>
+                        </div>
+                        
+                    </div>
+                    
+                 
+                   
+                </div>
+            </div>
+        </div>
+        <div class=" bg-white  w-[25%] my-5 h-fit py-3" >
+            <mat-calendar (selectedChange)="handleChange($event)"  >
+              
+            </mat-calendar>
+        </div>
+
+
+    </div>
+</main>

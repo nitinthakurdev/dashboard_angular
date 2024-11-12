@@ -1,0 +1,26 @@
+<main class="p-7">
+    <h1 class="text-5xl font-medium  ">Order List</h1>
+    
+    <div class="py-4 flex gap-4  " >
+        <button class="text-lg font-normal px-5 py-2 rounded-full hover:bg-white  flex gap-2 items-center" [ngClass]="{'bg-white ':val === 1 , }" (click)="changeVal(1)" >
+            <mat-icon>view_list</mat-icon>
+            All Orders
+        </button>
+        <button class="text-lg font-normal px-5 py-2 rounded-full hover:bg-white   flex gap-2 items-center" [ngClass]="{'bg-white ':val === 2 ,}" (click)="changeVal(2)" >
+            <mat-icon>history</mat-icon>
+            Panding Orders
+        </button>
+        <button class="text-lg font-normal px-5 py-2 rounded-full hover:bg-white   flex gap-2 items-center " [ngClass]="{'bg-white ':val === 3 ,}" (click)="changeVal(3)" >
+            <mat-icon>local_shipping</mat-icon>
+            Delivered Orders
+        </button>
+        <button class="text-lg font-normal px-5 py-2 rounded-full hover:bg-white   flex gap-2 items-center" [ngClass]="{'bg-white ':val === 4 ,}" (click)="changeVal(4)" >
+            <mat-icon>block</mat-icon>
+            Cancel Orders
+        </button>
+
+    </div>
+    <div>
+        <app-order-table [data]="data" ></app-order-table>
+    </div>
+</main>

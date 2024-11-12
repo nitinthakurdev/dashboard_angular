@@ -1,0 +1,30 @@
+
+<main class="p-7 max-w-[100vw]" >
+    <h1 class="text-5xl font-medium  " >Dashboard</h1>
+    <div class="grid grid-cols-4 lg:gap-3 2xl:gap-8 py-10 px-3  " >
+        <div class="xl:h-52 p-0   rounded-xl shadow-md lg:p-3 xl:p-6  " *ngFor="let val of data" >
+            <div class="flex justify-between items-center" >
+                <div>
+                    <h3 class=" lg:text-lg  xl:text-xl font-medium text-gray-600 " >Total User</h3>
+                    <h4 class=" xl:text-xl  2xl:text-3xl font-bold  xl:py-4 2xl:py-7 " >10000</h4>
+                </div>
+                <div class=" w-12 xl:w-16 2xl:me-10" >
+                    <img src="./icons/user.png" class="size-full" alt="">
+                </div>
+            </div>
+            <p class="flex items-center gap-2" >
+                <span class=" text-sm   2xl:text-lg font-medium text-green-500" ><mat-icon>trending_up</mat-icon> 8.5%</span><span class="2xl:text-lg text-sm font-medium text-gray-500" >Up from yesterday</span>
+            </p>
+        </div>
+    </div>
+    <div class="h-[40vh] w-full py-10 flex justify-between" >
+        <div class="h-full flex-1 flex items-center justify-center" >
+            <canvas id="MyChart"   >{{chart}}</canvas>
+        </div>
+        <div class="h-full flex-1 flex items-center justify-center">
+            <canvas id="MyChart1"   >{{chart1}}</canvas>
+        </div>
+    </div>
+    <app-table></app-table>
+
+</main>

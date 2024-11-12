@@ -1,0 +1,208 @@
+<main class="p-7">
+  <h1 class="text-5xl font-medium">Products</h1>
+  <div class="flex w-full items-center justify-between text-gray-600">
+    <p>Here all the current Product on your store</p>
+    <button
+      class="flex item-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-md"
+      (click)="changeModal(true)"
+    >
+      <mat-icon>add</mat-icon> ADD PRODUCT
+    </button>
+  </div>
+  <div class="flex w-full justify-between py-5 pe-7">
+    <label for="select">
+      sort by :
+      <select id="select" class="focus-visible:outline-none">
+        <option value="">All</option>
+        <option value="">Recently Added</option>
+        <option value="">Last Week</option>
+        <option value="">Last Month</option>
+        <option value="">Last Year</option>
+      </select>
+    </label>
+    <button class="border-2 border-black px-4 py-1 rounded-md">
+      Export Products
+    </button>
+  </div>
+  <div class="flex items-center justify-between pe-7 py-2">
+    <input type="text" class="h-10 w-96 px-3 rounded-lg" placeholder="Search" (input)="HandleSearch($event)" />
+    <label for="select">
+      Show :
+      <select id="select" class="focus-visible:outline-none" (change)="chnageLimit($event)" >
+        <option value={{5}} >5</option>
+        <option value={{10}}>10</option>
+        <option value={{15}}>15</option>
+        <option value={{20}}>20</option>
+        <option value={{30}}>30</option>
+      </select>
+      entries
+    </label>
+  </div>
+  <div class="py-5">
+    <table class="table w-full">
+      <thead class="py-5">
+        <tr class="text-center h-14">
+          <th>Product Id</th>
+          <th>Image</th>
+          <th>Product Name</th>
+          <th>Product category</th>
+          <th>Product Brand</th>
+          <th>Product Price</th>
+          <th>Product Qty.</th>
+          <th>type</th>
+          <th>IsActive</th>
+          <th class="text-start w-32">Action</th>
+        </tr>
+      </thead>
+      <tbody class="py-3 my-10">
+        <tr *ngFor="let value of data; index as i" class="text-center bg-white">
+          <td>{{ value.productId }}</td>
+          <td class="flex justify-center py-5">
+            <img src="{{ value.image }}" class="h-20 w-20" />
+          </td>
+          <td>{{ value.title }}</td>
+          <td>{{ Handlecategory(value.category).name }}</td>
+          <td>{{ value.brand }}</td>
+          <td>Rs. {{ value.price }}</td>
+          <td>{{ value.qty }} pcs</td>
+          <td>{{ value.type }}</td>
+          <td>
+            <span
+              class="0 text-white px-3 py-1 rounded-full"
+              [ngClass]="{
+                'bg-green-500': value.status === true,
+                'bg-red-500': value.status === false
+              }"
+              >{{ value.status ? "Active" : "Inactive" }}</span
+            >
+          </td>
+          <td class="" (click)="HandleIndex(i)">
+            <div
+              class="flex items-center justify-center gap-1 bg-gray-200 h-10   w-10 rounded-full relative p-2"
+              (click)="HandleAnimation()"
+            >
+              <span
+                class="block rounded-full absolute transition-all duration-300"
+                [ngClass]="{
+                  'left-16 -top-8 ': Animation === true && indexValue === i,
+                  'left-2 top-[50%] -translate-y-[50%] ': Animation === false
+                }"
+                >@if(icons && indexValue === i){<span class="text-blue-500"
+                   (click)="EditProduct(value)" ><mat-icon>edit</mat-icon></span
+                >}@else {<span
+                  class="h-1 w-1 bg-black block rounded-full"
+                ></span
+                >}</span  
+              >
+              <span
+                class="block rounded-full absolute left-6 transition-all duration-300"
+                [ngClass]="{
+                  'left-14 top-0 ': Animation === true && indexValue === i,
+                  'left-[70%] top-[50%] -translate-y-[50%]': Animation === false
+                }"
+                >@if(icons && indexValue === i){ @if(value.status){<span
+                  class="text-red-500"
+                  (click)="UpdateStatus(value.id, false)"
+                  ><mat-icon>cancel</mat-icon></span
+                >}@else{<span
+                  class="text-green-500"
+                  (click)="UpdateStatus(value.id, true)"
+                  ><mat-icon>check_circle</mat-icon></span
+                >}}@else {<span
+                  class="h-1 w-1 bg-black block rounded-full"
+                ></span
+                >}</span
+              >
+              <span
+                class="block rounded-full absolute left-1.5 transition-all duration-300"
+                [ngClass]="{
+                  'left-16 top-7 ': Animation === true && indexValue === i,
+                  'left-[45%] top-[50%] -translate-y-[50%]': Animation === false
+                }"
+                >@if(icons && indexValue === i){<span
+                  class="text-red-500"
+                  (click)="DeleteProduct(value.id)"
+                  ><mat-icon>delete</mat-icon></span
+                >}@else {<span
+                  class="h-1 w-1 bg-black block rounded-full"
+                ></span
+                >}</span
+              >
+
+              @if(icons&& indexValue === i ){
+              <p class="h-full w-full flex items-center justify-center">
+                <mat-icon>close</mat-icon>
+              </p>
+              }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <div
+      class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+    >
+      <div class="flex flex-1 justify-between sm:hidden">
+        <a
+          class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >Previous</a
+        >
+        <a
+          class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >Next</a
+        >
+      </div>
+      <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+        <div>
+          <p class="text-sm text-gray-700">
+            Showing
+            <span class="font-medium">{{(query.page -1) * query.limit +1 }}</span>
+            to
+            <span class="font-medium">{{(query.page -1) * query.limit + query.limit}}</span>
+            of
+            <span class="font-medium">{{NewData.length}}</span>
+            results
+          </p>
+        </div>
+        <div>
+          <nav
+            class="isolate inline-flex -space-x-px rounded-md shadow-sm"
+            aria-label="Pagination"
+          >
+            <a
+              (click)="HandleQueryPrev()"
+              class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+            >
+              <span class="sr-only">Previous</span>
+              <mat-icon>chevron_left</mat-icon>
+            </a>
+           
+            <a
+              aria-current="page"
+              class="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >{{paramdata === 0 || paramdata === undefined ? 1 : paramdata}}</a
+            >
+            
+            <a
+            (click)="HandleQueryNext()"
+              class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+            >
+              <span class="sr-only">Next</span>
+              <mat-icon>chevron_right</mat-icon>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  @if(showModal){
+  <app-product-modal
+    (changeModal)="changeModal($event)"
+    (createProduct)="createProduct($event)"
+    (UpdateProduct)="UpdateProduct($event)"
+    [EditableProduct]="EditableProduct"
+  ></app-product-modal>
+  }
+</main>

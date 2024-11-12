@@ -1,0 +1,83 @@
+<main class="p-7">
+    <h1 class="text-5xl font-medium  ">Banner</h1>
+    <div>
+        <div class='banner_table p-3 bg-gray-100 h-[100vh]'>
+        
+        <div class='bg-white p-3 rounded-md h-100'>
+        
+            <div class='heading flex justify-between items-center'>
+                <div>
+                    <h3 class='font-bold'>Manage Banners</h3>
+                    <p>A list of all the Banners you will manage accordingly</p>
+                </div>
+               <button class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600" (click)="handleModal(true)" >+ Add New Banner</button>
+            </div>
+        
+            <div class='table w-full mt-5'>
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                    <thead class="text-sm text-black bg-white border-b h-[60px] border-gray-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Banner Image
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Banner alt Text
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Banner Redirection Path
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Banner deadline
+                            </th>
+                           
+                            <th scope="col" class="px-6 py-3 text-center">
+                                Action
+                            </th>
+        
+                        </tr>
+                    </thead>
+                    <tbody>
+                 
+        
+                        <tr class="bg-white border-b h-[60px]" *ngFor="let item of BannerData">
+                            <td class="px-6 py-4">
+                                <img class='w-14 h-14 rounded'
+                                    src={{item.image}}
+                                    alt={{item.alt}} />
+                            </td>
+        
+                            <td class="px-6 py-4">
+                                {{item.alt}}
+                            </td>
+                            <td class="px-6 py-4 ">
+                                {{item.redirectUrl}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{item.bannerdeadline}}
+                            </td>
+                           
+                            <td class="px-6 py-4">
+                                <div class="flex items-center justify-center gap-4 ">
+                                    <button (click)="EditBanner(item)"
+                                        class="w-20 px-2 py-1 text-white bg-blue-500 rounded-md flex items-center gap-1 "><mat-icon
+                                            class="text-sm">border_color</mat-icon>Edit</button>
+                                    <button type="button" class="w-24 px-2 py-1 text-white bg-red-500 rounded-md flex items-center gap-1" (click)="DeleteBanner(item.id)"
+                                        >
+                                        <mat-icon>delete</mat-icon>Delete
+                                    </button>
+                                
+                                
+                                </div>
+                            </td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+        @if(ShowModal){
+            <app-banner-modal (handleModal)="handleModal($event)" (createBanner)="createBanner($event)" [Updateabledata]="Updateabledata" (UpdateBanner)="UpdateBanner($event)"  ></app-banner-modal>
+        }
+</main>

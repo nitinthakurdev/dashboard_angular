@@ -1,0 +1,171 @@
+<main class="p-7">
+    <h1 class="text-5xl font-medium  ">Category</h1>
+    <p class="px-3 py-2 text-gray-600 ">Here all the Categories</p>
+    <div class="flex py-2 ">
+        <button class="py-3 w-64 hover:bg-white flex items-center gap-3 px-5 " (click)="changeval(1)"
+            [ngClass]="{'border-b-4 border-blue-700 bg-white ': val === 1 || val === undefined || val ===  null}"><mat-icon>category</mat-icon>
+            Category</button>
+        <button class="py-3 w-64 hover:bg-white flex items-center gap-3 px-5 " (click)="changeval(2)"
+            [ngClass]="{'border-b-4 border-blue-700 bg-white ': val === 2}"><mat-icon>category</mat-icon>Sub-Category</button>
+        <button class="py-3 w-64 hover:bg-white flex items-center gap-3 px-5  " (click)="changeval(3)"
+            [ngClass]="{'border-b-4 border-blue-700 bg-white ': val === 3}"><mat-icon>category</mat-icon>
+            Inner-Category</button>
+    </div>
+    <div class="flex w-full items-center justify-between pe-20">
+        <span class="text-2xl font-medium px-2 py-3">{{val === 1 || val === undefined || val === null ? 'Category' : val
+            === 2
+            ? 'Sub Category' : 'Inner category' }}</span>
+
+        @if(val === 1 || val === undefined || val === null){
+        <button
+            class="flex w-52 bg-green-500 py-1 text-lg items-center px-4 text-white gap-2 rounded-lg hover:bg-green-600 "
+            (click)="handleModal(true)"><mat-icon>add</mat-icon> Add Category</button>
+        } @else if (val === 2) {
+        <button
+            class="flex w-52 bg-green-500 py-1 text-lg items-center px-4 text-white gap-2 rounded-lg hover:bg-green-600 "
+            (click)="handleModal(true)"><mat-icon>add</mat-icon> Add Sub Category</button>
+        }@else {
+        <button
+            class="flex w-62 bg-green-500 py-1 text-lg items-center px-4 text-white gap-2 rounded-lg hover:bg-green-600 "
+            (click)="handleModal(true)"><mat-icon>add</mat-icon> Add Inner Category</button>
+        }
+    </div>
+    <div class="relative">
+        <input type="text" placeholder="Search" class="h-10 w-[30%] rounded-lg ps-10 " (input)="HandleSearch($event)" />
+        <mat-icon class="absolute top-[50%] -translate-y-[50%] left-3 text-gray-400">search</mat-icon>
+    </div>
+    @if(val === 1 || val === undefined || val === null ){
+    <div class="shadow-lg rounded-lg overflow-hidden mx-4 py-5 md:mx-10">
+        <table class="w-full table-fixed">
+            <thead>
+                <tr class="bg-gray-200 ">
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Image</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+                    <th class="w-1/4 py-4 px-6  text-gray-600 font-bold uppercase text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                <tr *ngFor="let item of category;index as  i" class="hover:bg-gray-200">
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <div class="h-16 w-16">
+                            <img src={{item.image}} class="size-full" />
+                        </div>
+                    </td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{item.name}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <span class="px-3 py-1  text-white rounded-full"
+                            [ngClass]="{'bg-green-500':item.isActive === true , 'bg-red-500':item.isActive === false }">{{
+                            item.isActive === true ? 'Active' : 'Inactive'}}</span>
+                    </td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <div class="flex items-center justify-center gap-4 ">
+                            <button (click)="edittask(item)"
+                                class="w-20 px-2 py-1 text-white bg-blue-500 rounded-md flex items-center gap-1 "><mat-icon
+                                    class="text-sm">border_color</mat-icon>Edit</button>
+                            <button type="button"
+                                class="w-24 px-2 py-1 text-white bg-red-500 rounded-md flex items-center gap-1"
+                                (click)="deletCategory(item.id)">
+                                <mat-icon>delete</mat-icon>Delete
+                            </button>
+
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    }
+    @else if (val === 2) {
+    <div class="shadow-lg rounded-lg overflow-hidden mx-4 py-5 md:mx-10">
+        <table class="w-full table-fixed">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Image</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">parent Category</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+                    <th class="w-1/4 py-4 px-6 text-center text-gray-600 font-bold uppercase">Action</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                <tr *ngFor="let item of subCategory" class="hover:bg-gray-200">
+
+                    <td class="py-4 px-6 border-b border-gray-200">
+
+                        <div class="h-16 w-16">
+                            <img src={{HandleSubcategory(item.categoryId).image}} class="size-full" />
+                        </div>
+                    </td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{item.name}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{HandleSubcategory(item.categoryId) .name
+                        }}</td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <span class="px-3 py-1  text-white rounded-full"
+                            [ngClass]="{'bg-green-500':item.isActive === true , 'bg-red-500':item.isActive === false }">{{
+                            item.isActive === true ? 'Active' : 'Inactive'}}</span>
+                    </td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <div class="flex items-center justify-center gap-4 ">
+                            <button class="w-20 px-2 py-1 text-white bg-blue-500 rounded-md flex items-center gap-1 "
+                                (click)="edittask(item)"><mat-icon class="text-sm">border_color</mat-icon>Edit</button>
+                            <button class="w-24 px-2 py-1 text-white bg-red-500 rounded-md flex items-center gap-1 "
+                                (click)="DeletSubCategory(item.id)"><mat-icon>delete</mat-icon>Detele</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    }@else {
+    <div class="shadow-lg rounded-lg overflow-hidden mx-4 py-5 md:mx-10">
+        <table class="w-full table-fixed">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Image</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Parent category</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Sub Category</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+                    <th class="w-1/4 py-4 px-6 text-center text-gray-600 font-bold uppercase">Action</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                <tr *ngFor="let item of innerCategory">
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <div class="h-16 w-16">
+                            <img src={{HandleInnerCategory(item.categoryId,item.subCategoryId).image}} class="size-full" />
+                        </div>
+                    </td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{HandleInnerCategory(item.categoryId,item.subCategoryId).categoryName}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{HandleInnerCategory(item.categoryId,item.subCategoryId).subCategory}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{item.name}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <span class="px-3 py-1  text-white rounded-full"
+                            [ngClass]="{'bg-green-500':item.isActive === true , 'bg-red-500':item.isActive === false }">{{
+                            item.isActive === true ? 'Active' : 'Inactive'}}</span>
+                    </td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <div class="flex items-center justify-center gap-4 ">
+                            <button type="button" (click)="edittask(item)"
+                                class="w-20 px-2 py-1 text-white bg-blue-500 rounded-md flex items-center gap-1 "><mat-icon
+                                    class="text-sm">border_color</mat-icon>Edit</button>
+                            <button class="w-24 px-2 py-1 text-white bg-red-500 rounded-md flex items-center gap-1 "
+                                (click)="DeleteinnerCategory(item.id)"><mat-icon>delete</mat-icon>Detele</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    }
+
+    @if(showModal){
+    <app-category-modal (handleModal)="handleModal($event)" (createCategory)="createcategory($event)"
+        [changecategory]="val" [categoryData]="category" (UpdateCategory)="UpdateCategory($event)"
+        [UpdatecategoryData]="updateData" (CreateSubCategory)="CreateSubCategory($event)"
+        (UpdateSubCategory)="UpdateSubCategory($event)" [SubCategory]="subCategory" (createInnerCategory)="CreateInnerCategory($event)" (UpdateInnerCategory)="UpdateInnerCategory($event)" ></app-category-modal>
+    }
+</main>

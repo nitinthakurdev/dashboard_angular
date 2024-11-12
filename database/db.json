@@ -1,0 +1,353 @@
+{
+  "Todo": [
+    {
+      "id": "0bd2",
+      "title": "today task",
+      "Description": "try to add new task and manage all that things \n",
+      "date": "2024-08-02T16:07",
+      "status": "complete"
+    },
+    {
+      "id": "a062",
+      "title": "date change ",
+      "Description": "try to filter data by date",
+      "date": "2024-08-03T16:28",
+      "status": "complete"
+    },
+    {
+      "id": "c413",
+      "title": "shfsadfasdf",
+      "Description": "asdfasdfsadfad",
+      "date": "2024-08-04T16:46",
+      "status": "complete"
+    },
+    {
+      "title": "read this task",
+      "Description": "asdfgasdfgasdgzsdfgasdf",
+      "date": "2024-08-03T11:32",
+      "status": "complete",
+      "id": "a961"
+    }
+  ],
+  "category": [
+    {
+      "name": "Electronic",
+      "image": "https://webstore.ansi.org/images/DLP/semiconductors/default.webp",
+      "isActive": true,
+      "id": "89cf"
+    },
+    {
+      "name": "Furniture",
+      "image": "https://worldfurnitureonline.com/wp-content/uploads/2021/10/World-Furniture-Online_39.jpg",
+      "isActive": false,
+      "id": "e6e0"
+    },
+    {
+      "name": "Fashion",
+      "image": "./icons/hello.webp",
+      "isActive": true,
+      "id": "6d17"
+    }
+  ],
+  "Sub_category": [
+    {
+      "categoryId": "89cf",
+      "name": "Mobile",
+      "isActive": true,
+      "id": "b008"
+    },
+    {
+      "id": "84fe",
+      "categoryId": "e6e0",
+      "name": "Sofa",
+      "isActive": true
+    },
+    {
+      "categoryId": "89cf",
+      "name": "Laptop",
+      "isActive": true,
+      "id": "084a"
+    },
+    {
+      "id": "e5dc",
+      "categoryId": "89cf",
+      "name": "Tablet",
+      "isActive": false
+    },
+    {
+      "id": "516e",
+      "categoryId": "e6e0",
+      "name": "Almirah",
+      "isActive": false
+    },
+    {
+      "id": "5a1c",
+      "categoryId": "e6e0",
+      "name": "Table",
+      "isActive": false
+    },
+    {
+      "id": "acdb",
+      "categoryId": "6d17",
+      "name": "Men Footwaer",
+      "isActive": true
+    }
+  ],
+  "Inner_category": [
+    {
+      "categoryId": "e6e0",
+      "subCategoryId": "516e",
+      "name": "Triveni ",
+      "isActive": true,
+      "id": "62d3"
+    },
+    {
+      "id": "0173",
+      "categoryId": "89cf",
+      "subCategoryId": "b008",
+      "name": "Vivo",
+      "isActive": true
+    },
+    {
+      "id": "1b1c",
+      "categoryId": "89cf",
+      "subCategoryId": "b008",
+      "name": "Motorola",
+      "isActive": true
+    },
+    {
+      "id": "6eab",
+      "categoryId": "89cf",
+      "subCategoryId": "b008",
+      "name": "Samsung",
+      "isActive": true
+    },
+    {
+      "id": "56e6",
+      "categoryId": "6d17",
+      "subCategoryId": "acdb",
+      "name": "Nike",
+      "isActive": true
+    },
+    {
+      "categoryId": "6d17",
+      "subCategoryId": "acdb",
+      "name": "Adidas",
+      "isActive": true,
+      "id": "7716"
+    },
+    {
+      "id": "8b88",
+      "categoryId": "89cf",
+      "subCategoryId": "084a",
+      "name": "Asus",
+      "isActive": true
+    }
+  ],
+  "product": [
+    {
+      "title": "vivo v23 pro max",
+      "image": "https://srvonline.in/wp-content/uploads/2022/02/v23-2.png",
+      "productId": "#547873",
+      "brand": "vivo",
+      "qty": "1",
+      "status": true,
+      "price": "230000",
+      "type": "New",
+      "description": "Capture your memories with the vivo V23 5G. Featuring Dimensity 920 chip, 6.44-inch AMOLED screen, and other practical features and seamless performance.\n",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "0173",
+      "id": "df36"
+    },
+    {
+      "id": "bbd4",
+      "title": "Moto edge50",
+      "image": "https://motorolain.vtexassets.com/arquivos/ids/158975/motorola-edge-50-fusion-pdp-ecom-render-1-balladblue-6m1x4kd1.png?v=638506041214230000",
+      "productId": "#234234",
+      "brand": "Motorola",
+      "qty": "1",
+      "status": true,
+      "price": "45999",
+      "type": "New",
+      "description": "skghfd weufhwekjfbwkejf kwbv",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "1b1c"
+    },
+    {
+      "title": "Samsung s24 Ultra ",
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-s24-s928-492660-sm-s928bzocins-539573814?$650_519_PNG$",
+      "productId": "#232132",
+      "brand": "Samsung",
+      "qty": "1",
+      "status": true,
+      "price": "99999",
+      "type": "New",
+      "description": "sdf dgsdgerg ",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "6eab",
+      "id": "e3c5"
+    },
+    {
+      "id": "3715",
+      "title": "Asus",
+      "image": "https://dlcdnwebimgs.asus.com/gain/df68ceeb-206c-44b1-9b97-6d5a30ae1315/",
+      "productId": "#234234",
+      "brand": "Asus",
+      "qty": "1",
+      "status": false,
+      "price": "45999",
+      "type": "New",
+      "description": "asdf asdgadsg fgd aergear",
+      "category": "89cf",
+      "subCategory": "084a",
+      "innerCategory": "8b88"
+    },
+    {
+      "id": "7f0e",
+      "title": "Acer Nitro Gaming",
+      "image": "https://cdn.uc.assets.prezly.com/6eea9401-3533-41c7-9abc-3a4658092acd/-/preview/1000x1000/-/format/auto/SP-03.png",
+      "productId": "#765123",
+      "brand": "Acer",
+      "qty": "2",
+      "status": true,
+      "price": "57999",
+      "type": "New",
+      "description": "Acer sf sv",
+      "category": "89cf",
+      "subCategory": "084a",
+      "innerCategory": "8b88"
+    },
+    {
+      "id": "02f2",
+      "title": "POCO M6 Pro 5G (Power Black, 128 GB)  (6 GB RAM)",
+      "image": "https://m.media-amazon.com/images/I/51dGqSFNrDL.jpg",
+      "productId": "#668899",
+      "brand": "Poco",
+      "qty": "1",
+      "status": true,
+      "price": "12999",
+      "type": "New",
+      "description": "sdgfygregfbehbrhueehf",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "0173"
+    },
+    {
+      "id": "8803",
+      "title": "realme P1 Pro 5G (Phoenix Red, 256 GB)  (8 GB RAM)",
+      "image": "https://mobitez.in/wp-content/uploads/2024/05/Realme-P1-Pro-5G-Phoenix-Red-2.webp",
+      "productId": "#0998876",
+      "brand": "realme",
+      "qty": "1",
+      "status": true,
+      "price": "19999",
+      "type": "New",
+      "description": "hdvbhdfhvfdhvdf",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "1b1c"
+    },
+    {
+      "id": "f393",
+      "title": "Nothing Phone (2a) 5G (White, 256 GB)  (12 GB RAM)",
+      "image": "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1710251219/Croma%20Assets/Communication/Mobiles/Images/305352_0_srdtb7.png",
+      "productId": "#342516",
+      "brand": "nothing",
+      "qty": "1",
+      "status": false,
+      "price": "27999",
+      "type": "old",
+      "description": "bcnvcnvcxbnvndf",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "6eab"
+    },
+    {
+      "id": "3fa7",
+      "title": "SAMSUNG Galaxy S23 FE (Mint, 128 GB)  (8 GB RAM)",
+      "image": "https://5.imimg.com/data5/ECOM/Default/2024/1/375070958/WY/LA/MD/5593817/s23fe.jpg",
+      "productId": "#565656",
+      "brand": "samsung",
+      "qty": "1",
+      "status": true,
+      "price": "33999",
+      "type": "new",
+      "description": "yttytyyttytytytt",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "0173"
+    },
+    {
+      "id": "320d",
+      "title": "Motorola g64 5G (Ice Lilac, 256 GB)  (12 GB RAM)#JustHere",
+      "image": "https://m.media-amazon.com/images/I/71ynZLgkkBL.jpg",
+      "productId": "#123456",
+      "brand": "motorola",
+      "qty": "1",
+      "status": false,
+      "price": "15999",
+      "type": "old",
+      "description": "ywuetrywtwryu",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "1b1c"
+    },
+    {
+      "id": "ba09",
+      "title": "Google Pixel 7a (Coral, 128 GB)  (8 GB RAM)#JustHere",
+      "image": "https://m.media-amazon.com/images/I/51ayRxSifqL.jpg",
+      "productId": "#3434343",
+      "brand": "google pixel",
+      "qty": "1",
+      "status": true,
+      "price": "35999",
+      "type": "new",
+      "description": "dgsfyusduyuyfvufhi",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "6eab"
+    },
+    {
+      "id": "15ac",
+      "title": "vivo T2 Pro 5G (New Moon Black, 256 GB)  (8 GB RAM)",
+      "image": "https://m.media-amazon.com/images/I/71RgzVu1ihL._AC_UF350,350_QL80_.jpg",
+      "productId": "#7878778",
+      "brand": "vivo",
+      "qty": "1",
+      "status": false,
+      "price": "23999",
+      "type": "old",
+      "description": "urytuiyretuert",
+      "category": "89cf",
+      "subCategory": "b008",
+      "innerCategory": "0173"
+    },
+    {
+      "title": "Aspire vero 16",
+      "image": "data:image/jpeg;base64,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",
+      "productId": "#111111",
+      "brand": "Acer",
+      "qty": "1",
+      "status": true,
+      "price": "49999",
+      "type": "New",
+      "description": "dfgsdfgsdf sfdgsdfgsdfg sdgdsfg",
+      "category": "89cf",
+      "subCategory": "084a",
+      "innerCategory": "8b88",
+      "id": "f815"
+    }
+  ],
+  "banner": [
+    {
+      "image": "https://img.freepik.com/free-psd/e-commerce-special-sale-banner-template_23-2149006699.jpg?w=2000&t=st=1723535566~exp=1723536166~hmac=f99d8645469db7697a06cfb8d32c49994cd81d3e5fb0a1f0043cd8670b5ba8e9",
+      "alt": "try ",
+      "redirectUrl": "/product",
+      "bannerdeadline": "2024-08-13T13:27",
+      "id": "b61a"
+    }
+  ]
+}

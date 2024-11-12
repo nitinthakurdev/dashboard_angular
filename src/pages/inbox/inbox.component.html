@@ -1,0 +1,52 @@
+<main class="p-7">
+    <h1 class="text-5xl font-medium  ">Inbox</h1>
+    <div class="py-3 flex justify-between items-center ">
+        <div class="flex items-center gap-5 " >
+
+            <div>
+                <input type="checkbox">
+
+                <select id="select" class="focus-visible:outline-none" >
+                    <option value="">all</option>
+                    <option value="">Read</option>
+                    <option value="">Unread</option>
+                    <option value="">None</option>
+                </select>
+            </div>
+            <mat-icon>refresh</mat-icon>
+            <mat-icon>more_vert</mat-icon>
+            
+        </div>
+        <div class="flex gap-7 pe-20 " >
+            <p>1 - 50 of 1000</p>
+            <div class="flex gap-3" >
+                <mat-icon>arrow_back_ios</mat-icon>
+                <mat-icon>arrow_forward_ios</mat-icon>
+            </div>
+        </div>
+
+    </div>
+    <div class="flex " >
+        <button class="py-3 w-64 hover:bg-white flex items-center gap-3 px-5 " (click)="changeval(1)"  [ngClass]="{'border-b-4 border-blue-700 bg-white ': val === 1 || val === undefined || val ===  null}" ><mat-icon>inbox</mat-icon> Primary</button>
+        <button class="py-3 w-64 hover:bg-white flex items-center gap-3 px-5 " (click)="changeval(2)" [ngClass]="{'border-b-4 border-blue-700 bg-white ': val === 2}"><mat-icon>schedule</mat-icon>Recent</button>
+        <button class="py-3 w-64 hover:bg-white flex items-center gap-3 px-5  " (click)="changeval(3)" [ngClass]="{'border-b-4 border-blue-700 bg-white ': val === 3}"><mat-icon >mark_as_unread</mat-icon> Unread</button>
+    </div>
+    <div class="py-4 " >
+        <div class="border-y-2 ">
+            <div *ngFor="let val of data" class="bg-white flex justify-between py-2 px-5 border-b hover:bg-gray-200 cursor-pointer  " >
+                <div class="  flex ">
+                    <div class="w-80 flex gap-3 items-center ">
+                        <input type="checkbox">
+                        <img src="./icons/star.png" class="h-5 w-5" />
+                        <h2 class="font-normal" >Photocrowd</h2>
+                    </div>
+                    <div>
+                        <span  >Welcome to ProProfs Discuss!</span> - <span class="font-light" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur</span>
+                    </div>
+                </div>
+                <p>1:20 PM</p>
+            </div>
+          
+        </div>
+    </div>
+</main>

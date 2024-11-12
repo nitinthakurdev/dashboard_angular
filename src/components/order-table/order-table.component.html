@@ -1,0 +1,40 @@
+
+<div class="py-4" >
+    <table class=" w-full" >
+        <thead>
+            <tr class=" py-3 text-gray-600 h-14" >
+                <th>Product</th>
+                <th>Buyer Name</th>
+                <th>Address</th>
+                <th>Order date</th>
+                <th>Payement type</th>
+                <th>Status</th>
+                <th>Deadline</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data" class="text-center bg-white hover:bg-gray-200" >
+                <td class="flex gap-3 items-center ps-3 " >
+                    <img src={{item.image}} class="h-16 w-16" alt="">
+                    <p>{{item.title}}</p>
+                </td>
+                <td>{{item.buyerName}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.order_date}}</td>
+                <td>{{item.payement_type}}</td>
+                <td class= " " >
+                    @if(item.status.toLocaleLowerCase() === 'in progress'){
+                        <button class="w-32 flex items-center justify-center py-1 bg-blue-500 text-white rounded-lg mx-auto " >{{item.status}}</button>
+                    }@else if(item.status.toLocaleLowerCase() === 'delivered'){
+                        <button class="w-32 flex items-center justify-center py-1 bg-green-500 text-white rounded-lg mx-auto ">{{item.status}}</button>
+                    }@else{
+                        <button class="w-32 flex items-center justify-center py-1 bg-red-500 text-white rounded-lg mx-auto ">{{item.status}}</button>
+                    }
+                </td>
+                <td>{{item.deadline}}</td>
+                <td><button>Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
